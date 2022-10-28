@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { computed, ref, Ref, withDefaults, onMounted, watch } from 'vue';
-import { baseStaticUrl } from '@/libs/utils';
 import useDevice from '@/hooks/useDevice';
+import { baseStaticUrl } from '@/libs/utils';
+import { computed, onMounted, ref, Ref, watch, withDefaults } from 'vue';
 
 interface Props {
   src?: string;
@@ -35,7 +35,7 @@ function videoAutoPlay() {
 }
 
 // 自动播放视频
-onMounted(() => { videoAutoPlay();});
+onMounted(() => { videoAutoPlay(); });
 // 监听视频 src，如果存在则自动播放
 
 watch(envSrc, () => { if (videoRef.value) videoRef.value.play(); });
