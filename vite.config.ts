@@ -41,15 +41,13 @@ export default ({ mode }) => {
           drop_debugger: true,
         },
       },
-      //警报门槛，限制大文件大小
-      chunkSizeWarningLimit: 1500,
     },
     server: {
       open: true,
       port: 2333,
       proxy: {
         '^/api': {
-          target: 'http://localhost:5021/api', // 后端服务实际地址
+          target: 'http://localhost:3500/api', // 后端服务实际地址
           changeOrigin: true, //开启代理
           rewrite: (path) => path.replace(/^\/api/, '')
         }
