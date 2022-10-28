@@ -1,3 +1,8 @@
+## 开始
+  - node > 14
+```js
+ pnpm install
+```
 ## 使用技术栈
 
 - vue3
