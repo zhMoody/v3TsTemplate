@@ -18,7 +18,7 @@ export const frameIn: Array<RouteRecordRaw> = [
         },
       },
       {
-        path: 'acg',
+        path: '/acg',
         name: 'acg',
         component: () => import('@/views/Acg/index.vue'),
         meta: {
