@@ -8,6 +8,8 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
+  console.log(123123132123, mode, loadEnv(mode, process.cwd()).VITE_PUBLIC_PATH);
+
   return defineConfig({
     plugins: [
       vue(),
