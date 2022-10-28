@@ -5,11 +5,10 @@ import { RouteRecordRaw } from 'vue-router';
 export const frameIn: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home',
     component: BasicLayout,
     children: [
       {
-        path: 'home',
+        path: '/',
         name: 'home',
         component: () => import('@/views/home/index.vue'),
         meta: {
