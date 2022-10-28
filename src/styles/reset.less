@@ -1,0 +1,46 @@
+// 全局css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --c-text-primary:#191919;
+  --c-text-secondary:#737374;
+  --c-border-primary:#ccc;
+  --c-bg-body:#ccc;
+  --c-bg-primary:#fff;
+  --c-bg-secondary:#d4d8dd;
+  --c-bg-button:#fff;
+}
+:root.dark-theme {
+  --c-text-primary:#eee;
+  --c-text-secondary:#d3d5db;
+  --c-border-primary:#454545;
+  --c-bg-body:#5e5e5e;
+  --c-bg-primary:#323339;
+  --c-bg-secondary:#222128;
+  --c-bg-button:#494a50;
+}
+:root.black-theme {
+  --c-text-primary:#edeeef;
+  --c-text-secondary:#d4d7e1;
+  --c-border-primary:#323232;
+  --c-bg-body:#000;
+  --c-bg-primary:#1b1d23;
+  --c-bg-secondary:#000001;
+  --c-bg-button:#343844;
+}
+body {
+  min-height: 100vh;
+  background-color: var(--c-bg-body);
+  transform: background-color 1s ease;
+  color: var(--c-text-primary);
+}
+body::-webkit-scrollbar {
+  width: 3px;
+  background: rgb(73, 73, 73);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(240, 248, 255, 0.74);
+}
