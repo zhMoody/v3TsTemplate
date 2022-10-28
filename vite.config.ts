@@ -8,7 +8,6 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
-  console.log(123123132123, mode, loadEnv(mode, process.cwd()).VITE_PUBLIC_PATH);
 
   return defineConfig({
     plugins: [
@@ -34,13 +33,17 @@ export default ({ mode }) => {
       }
     },
     build: {
-      // 清除console和debugger
+      outDir: "dist",
+      assetsDir: "assets", //指定静态资源存放路径
+      // assetsPublicPath:'',
+      sourcemap: true, //是否构建source map 文件
       terserOptions: {
+        // 生产环境移除console
         compress: {
           drop_console: true,
           drop_debugger: true,
-        },
-      },
+        }
+      }
     },
     server: {
       open: true,
