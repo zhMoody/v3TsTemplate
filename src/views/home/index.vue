@@ -5,7 +5,6 @@
     <img v-lazy="src" />
   </div>
 
-
 </template>
 <script lang='ts' setup>
 import src from '@/assets/1659087098571.jpg';
@@ -45,15 +44,12 @@ onMounted(() => {
 .content {
   width: 800px;
   height: 500px;
-  overflow-x: hidden;
-  /* 设置溢出滚动 */
+  overflow: hidden;
   white-space: nowrap;
-  overflow-y: hidden;
   margin: 0 auto;
   border-radius: 10px;
   margin-top: 10px;
 
-  /* 隐藏滚动条 */
   img {
     width: 100%;
     height: 100%;

@@ -2,9 +2,7 @@
   <div class='basic-layout'>
     <basic-header />
     <div>
-
       <router-view v-slot='{ Component, route }'>
-
         <keep-alive>
           <transition :enter-active-class='`animate__animated ${route.meta.transition}`'>
             <component :is='Component' v-if='route.meta.keepAlive'></component>
