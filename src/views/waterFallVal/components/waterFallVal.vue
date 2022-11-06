@@ -2,7 +2,7 @@
   <div class="wraps"  :style="{'margin-left':`${(xWidth - width * column) / 2 + 10}px`}" >
     <div :style="{height:item.height+'px',background:item.background,left:item.left+'px',top:item.top+'px'}"
          v-for="item in waterList" :key="item" class="items">
-      <img class="itemImg" :src="item.url || 'https://img.jbzj.com/file_images/article/202201/202212592306065.jpg?202202592324'" alt="">
+      <img class="itemImg" v-lazy="item.url || 'https://img.jbzj.com/file_images/article/202201/202212592306065.jpg?202202592324'" alt="">
     </div>
   </div>
 </template>
