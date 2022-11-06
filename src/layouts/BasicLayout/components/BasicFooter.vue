@@ -1,5 +1,6 @@
 <template>
-  <footer>
+  <footer v-if="isShow">
+<!--  <footer v-if="route.path !== '/waterFall'">-->
     <h2>Footer:</h2>
     <div class="github-badge" style="cursor: pointer; margin-left:20px ;">
       <a href="/" target="_blank">
@@ -15,10 +16,13 @@
   </footer>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'BaseFooter',
-};
+<script lang="ts" setup>
+import {useRoute} from "vue-router";
+const route = useRoute()
+import {useFooterStore} from "@/stores/footer";
+import { storeToRefs } from 'pinia';
+const store = useFooterStore()
+const {isShow} = storeToRefs(store)
 </script>
 <style scoped lang="less">
 footer {

@@ -60,9 +60,14 @@ const props = withDefaults(defineProps<Props>(), {
       title: '示例',
     },
     {
+      color: ' #cb4817',
+      path: '/waterFall',
+      title: '瀑布流',
+    },
+    {
       color: 'rgb(110 233 128)',
       path: '/acgaaa',
-      title: '动漫电影'
+      title: '404'
     },
   ],
 });

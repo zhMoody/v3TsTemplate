@@ -27,6 +27,16 @@ export const frameIn: Array<RouteRecordRaw> = [
           transition: 'animate__fadeIn'
         },
       },
+      {
+        path: '/waterFall',
+        name: 'acwaterFallg',
+        component: () => import('@/views/waterFallVal/index.vue'),
+        meta: {
+          title: 'waterFall',
+          keepAlive: false,
+          transition: 'animate__fadeIn'
+        },
+      },
 
     ],
   },

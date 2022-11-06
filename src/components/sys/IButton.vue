@@ -1,7 +1,7 @@
 <template>
-  <div class="box" :style="{ 'width': width, 'height': height }">
+  <div class="btnStyle" :style="{ 'width': width, 'height': height }">
     <span></span>
-    <h2 :style="{ 'font-size': fontSize, 'color': color }">{{ content }}</h2>
+    <h2 :style="{ 'font-size': fontSize, 'color': color }">{{ text }}</h2>
   </div>
 </template>
 
@@ -10,24 +10,25 @@ import { withDefaults } from 'vue';
 interface Props {
   width?: string;
   height?: string;
-  content?: string
+  text?: string
   fontSize?: string
   color?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   width: '100px',
   height: '30px',
-  content: '按钮',
+  text: '按钮',
   fontSize: '14px',
   color: 'var(--c-text-primary)'
 });
+
 </script>
 <script lang="ts">
 export default { name: 'IButton' };
 </script>
 <style scoped lang="less">
-.box {
+.btnStyle {
   position: relative;
   background-color: var(--c-bg-secondary);
   border-radius: 5px;

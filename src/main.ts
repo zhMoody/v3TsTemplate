@@ -7,12 +7,15 @@ import App from './App.vue';
 import { components, plugins } from './components';
 import router from './router';
 import store from './stores';
+import {createPinia} from 'pinia'
+const pinia = createPinia()
 // css
 import 'animate.css';
 import './styles/reset.less';
 
 const app = createApp(App);
 app.use(store);
+app.use(pinia);
 app.use(router);
 app.use(lazyPlugin, {
   loading: loadGif,
@@ -23,8 +26,6 @@ app.mount('#app');
 
 // 加载全局组件
 components.forEach((component) => {
-  console.log(component);
-
   app.component(component.name, component);
 });
 

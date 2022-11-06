@@ -1,15 +1,23 @@
 <template>
-
   <div v-for="item in classList" :key="item" :class="`content section wow animate__animated ${item}`"
                   data-wow-duration="2s" data-wow-offset="1" data-wow-iteration="1">
     <img v-lazy="src" />
   </div>
-
+  <div ref="el" :style="style" class="box">
+    拖动我试试 x:{{ x }}, y:{{ y }}
+  </div>
 </template>
 <script lang='ts' setup>
 import src from '@/assets/1659087098571.jpg';
-import { onMounted, reactive } from 'vue';
+import { useDraggable } from '@vueuse/core';
+import { onMounted, reactive, ref } from 'vue';
 import WOW from "wow.js";
+
+const el = ref<HTMLElement | null>(null)
+const { x, y, style } = useDraggable(el, {
+  initialValue: { x: 40, y: 40 },
+})
+
 const classList = reactive([
   'animate__fadeInLeft',
   'animate__fadeInRight',
@@ -54,5 +62,15 @@ onMounted(() => {
     width: 100%;
     height: 100%;
   }
+}
+
+.box {
+  position: fixed;
+  background-color: pink;
+  height: 80px;
+  line-height: 80px;
+  padding: 0 20px;
+  border-radius: 20px;
+  user-select: none;
 }
 </style> 
