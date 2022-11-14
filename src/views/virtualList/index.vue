@@ -4,7 +4,7 @@
   <div ref="scrollBox" class="container" @scroll="doscroll">
     <div ref="items" >
       <div class="item" v-for="item in virtualList" :key="item.tid">
-        <img :src="item.src" alt=""/>
+        <img v-lazy="item.src" alt=""/>
         <span>{{ item.text }}</span>
       </div>
     </div>
