@@ -37,6 +37,16 @@ export const frameIn: Array<RouteRecordRaw> = [
           transition: 'animate__fadeIn'
         },
       },
+{
+        path: '/virtualList',
+        name: 'virtualList',
+        component: () => import('@/views/virtualList/index.vue'),
+        meta: {
+          title: '虚拟列表',
+          keepAlive: false,
+          transition: 'animate__fadeIn'
+        },
+      },
 
     ],
   },

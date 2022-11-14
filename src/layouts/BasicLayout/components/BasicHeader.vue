@@ -65,6 +65,11 @@ const props = withDefaults(defineProps<Props>(), {
       title: '瀑布流',
     },
     {
+      color: ' #cb4867',
+      path: '/virtualList',
+      title: '虚拟列表',
+    },
+    {
       color: 'rgb(110 233 128)',
       path: '/acgaaa',
       title: '404'

@@ -1,28 +1,31 @@
 <template>
-  <div class="wraps"  :style="{'margin-left':`${(xWidth - width * column) / 2 + 10}px`}" >
-    <div :style="{height:item.height+'px',background:item.background,left:item.left+'px',top:item.top+'px'}"
+  <div class="wraps" :style="{'margin-left':`${marginLeft}px`}">
+    <div :style="{height:item.height+'px', background:item.background, left:item.left+'px', top:item.top+'px'}"
          v-for="item in waterList" :key="item" class="items">
-      <img class="itemImg" v-lazy="item.url || 'https://img.jbzj.com/file_images/article/202201/202212592306065.jpg?202202592324'" alt="">
+      <img class="itemImg"
+           v-lazy="item.url || 'https://img.jbzj.com/file_images/article/202201/202212592306065.jpg?202202592324'"
+           alt="">
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import {onMounted, onUnmounted, reactive, ref} from 'vue';
+import {onMounted, onUnmounted, reactive, ref, computed} from 'vue';
 import {useFooterStore} from "@/stores/footer";
 
 const props = defineProps<{
   list: any[]
 }>()
+const store = useFooterStore()
 const waterList = reactive<any[]>([])
 const heightList = reactive<number[]>([])
 const xWidth = ref<number>(document.body.clientWidth)
 const width = ref<number>(320)
 const column = ref<number>(Math.floor(xWidth.value / width.value))
-console.log()
-const store = useFooterStore()
+const marginLeft = computed(() => (xWidth.value - width.value * column.value) / 2 + 10)
+
 const init = () => {
   store.setIsShow(false)
-  for (let i = 0; i < props.list.length; i++) {
+  props.list.forEach((item,i)=>{
     if (i < column.value) {
       props.list[i].left = i * width.value
       props.list[i].top = 20
@@ -42,19 +45,13 @@ const init = () => {
       heightList[index] = heightList[index] + props.list[i].height + 20
       waterList.push(props.list[i])
     }
-  }
+  })
+}
 
-}
-const handleResize = () => {
-  xWidth.value = document.body.clientWidth
-  column.value = Math.floor(xWidth.value / width.value)
-}
 onMounted(() => {
-  window.addEventListener('resize', handleResize)
   init()
 })
 onUnmounted(() => {
-  window.removeEventListener('resize', handleResize)
   store.setIsShow(true)
 })
 </script>
@@ -65,6 +62,7 @@ onUnmounted(() => {
   .items {
     position: absolute;
     width: 300px;
+
     .itemImg {
       width: 100%;
       height: 100%;
