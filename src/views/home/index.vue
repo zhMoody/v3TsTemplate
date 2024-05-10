@@ -1,5 +1,5 @@
 <template>
-  <div v-for="item in classList" :key="item" :class="`content section wow animate__animated ${item}`"
+  <div v-for="item in classList" :key="item" :class="`content section wow animate__animated animate__fadeIn`"
                   data-wow-duration="2s" data-wow-offset="1" data-wow-iteration="1">
     <img v-lazy="src" />
   </div>
